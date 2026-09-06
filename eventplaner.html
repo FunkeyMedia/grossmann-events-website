@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eventplaner | Getränke Grossmann</title>
+  <meta name="description" content="Getränkemengen, Kühlung und Ausstattung für Ihr Event in wenigen Schritten planen.">
+  <link rel="icon" href="/assets/logo.png">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="planner-page">
+  <header class="planner-header">
+    <div class="wrap planner-header-inner">
+      <a class="brand" href="/" aria-label="Zur Startseite">
+        <img src="/assets/logo.png" alt="" width="800" height="800">
+        <span><strong>GETRÄNKE</strong> GROSSMANN</span>
+      </a>
+      <a class="planner-close" href="/">Planer schließen ×</a>
+    </div>
+  </header>
+
+  <main class="planner-main">
+    <div class="wrap planner-intro">
+      <p class="section-kicker">Event-Getränkerechner</p>
+      <h1>Getränkemengen<br><em>einfach planen.</em></h1>
+      <p>Beantworten Sie sechs kurze Fragen. Sie erhalten sofort eine nachvollziehbare Bedarfsschätzung und eine fertige Anfrage.</p>
+    </div>
+
+    <div class="wrap planner-layout">
+      <form class="funnel" id="event-funnel">
+        <div class="funnel-progress" aria-label="Fortschritt">
+          <span id="progress-label">Schritt 1 von 6</span>
+          <div><i id="progress-bar"></i></div>
+        </div>
+
+        <section class="funnel-step active" data-step="1">
+          <span class="step-number">01 · Veranstaltung</span>
+          <h2>Was planen Sie?</h2>
+          <div class="choice-grid">
+            <label><input type="radio" name="eventType" value="Firmenfeier" checked><span>Firmenfeier</span></label>
+            <label><input type="radio" name="eventType" value="Sommerfest"><span>Sommerfest</span></label>
+            <label><input type="radio" name="eventType" value="Weihnachtsfeier"><span>Weihnachtsfeier</span></label>
+            <label><input type="radio" name="eventType" value="Empfang"><span>Empfang</span></label>
+            <label><input type="radio" name="eventType" value="Tagung / Konferenz"><span>Tagung / Konferenz</span></label>
+            <label><input type="radio" name="eventType" value="Kundenevent"><span>Kundenevent</span></label>
+          </div>
+        </section>
+
+        <section class="funnel-step" data-step="2">
+          <span class="step-number">02 · Termin &amp; Ort</span>
+          <h2>Wann und wo findet das Event statt?</h2>
+          <div class="field-grid">
+            <label>Datum der Veranstaltung<input type="date" name="eventDate" required></label>
+            <label>PLZ oder Ort<input type="text" name="location" placeholder="z. B. Frankfurt" required></label>
+          </div>
+          <p class="field-hint">Datum und Ort helfen bei Mengen-, Kühlungs- und Lieferplanung.</p>
+        </section>
+
+        <section class="funnel-step" data-step="3">
+          <span class="step-number">03 · Gäste</span>
+          <h2>Wie viele Gäste erwarten Sie?</h2>
+          <div class="guest-counter">
+            <button type="button" data-counter="minus" aria-label="10 Gäste weniger">−</button>
+            <label><span>Gäste</span><input type="number" name="guests" min="10" max="5000" step="10" value="100" required></label>
+            <button type="button" data-counter="plus" aria-label="10 Gäste mehr">+</button>
+          </div>
+          <h3>Gästeprofil</h3>
+          <div class="choice-grid compact">
+            <label><input type="radio" name="profile" value="Businesspublikum" checked><span>Businesspublikum</span></label>
+            <label><input type="radio" name="profile" value="Familien"><span>Familien</span></label>
+            <label><input type="radio" name="profile" value="Messebesucher"><span>Messebesucher</span></label>
+            <label><input type="radio" name="profile" value="Partygesellschaft"><span>Partygesellschaft</span></label>
+          </div>
+        </section>
+
+        <section class="funnel-step" data-step="4">
+          <span class="step-number">04 · Dauer &amp; Jahreszeit</span>
+          <h2>Wie lange dauert die Veranstaltung?</h2>
+          <div class="choice-grid duration-grid">
+            <label><input type="radio" name="duration" value="2"><span>2 h</span></label>
+            <label><input type="radio" name="duration" value="4" checked><span>4 h</span></label>
+            <label><input type="radio" name="duration" value="6"><span>6 h</span></label>
+            <label><input type="radio" name="duration" value="8"><span>8 h</span></label>
+            <label><input type="radio" name="duration" value="10"><span>10 h</span></label>
+          </div>
+          <h3>Sommer oder Winter?</h3>
+          <div class="choice-grid season-grid">
+            <label><input type="radio" name="season" value="Sommer" checked><span><b>Sommer</b><small>Mehr Wasser und Erfrischungsgetränke</small></span></label>
+            <label><input type="radio" name="season" value="Winter"><span><b>Winter</b><small>Geringerer Bedarf an Kaltgetränken</small></span></label>
+          </div>
+        </section>
+
+        <section class="funnel-step" data-step="5">
+          <span class="step-number">05 · Auswahl</span>
+          <h2>Was sollen wir einplanen?</h2>
+          <h3>Getränke</h3>
+          <div class="choice-grid compact checkbox-grid">
+            <label><input type="checkbox" name="drinks" value="Wasser" checked><span>Wasser</span></label>
+            <label><input type="checkbox" name="drinks" value="Softdrinks" checked><span>Softdrinks</span></label>
+            <label><input type="checkbox" name="drinks" value="Säfte / Schorlen" checked><span>Säfte / Schorlen</span></label>
+            <label><input type="checkbox" name="drinks" value="Bier"><span>Bier</span></label>
+            <label><input type="checkbox" name="drinks" value="Wein / Sekt"><span>Wein / Sekt</span></label>
+            <label><input type="checkbox" name="drinks" value="Kaffee / Tee"><span>Kaffee / Tee</span></label>
+          </div>
+          <h3>Kühlung &amp; Equipment</h3>
+          <div class="choice-grid compact checkbox-grid">
+            <label><input type="checkbox" name="equipment" value="Mietkühlschränke"><span>Mietkühlschränke</span></label>
+            <label><input type="checkbox" name="equipment" value="Kühlanhänger"><span>Kühlanhänger</span></label>
+            <label><input type="checkbox" name="equipment" value="Gläser / Zubehör"><span>Gläser / Zubehör</span></label>
+          </div>
+          <label class="reserve-field">Reserve einplanen
+            <select name="reserve"><option value="0">0 %</option><option value="10" selected>10 %</option><option value="20">20 %</option></select>
+          </label>
+        </section>
+
+        <section class="funnel-step" data-step="6">
+          <span class="step-number">06 · Kontaktdaten</span>
+          <h2>Wohin dürfen wir das Angebot senden?</h2>
+          <div class="field-grid">
+            <label>Unternehmen<input type="text" name="company" required></label>
+            <label>Ansprechpartner<input type="text" name="contactName" required></label>
+            <label>E-Mail<input type="email" name="email" required></label>
+            <label>Telefon / Mobil<input type="tel" name="phone" required></label>
+          </div>
+          <label>Hinweise zu Ablauf, Zufahrt oder Wünschen<textarea name="notes" rows="4"></textarea></label>
+          <label class="privacy-check"><input type="checkbox" name="privacy" required><span>Ich habe die <a href="/datenschutz.html" target="_blank">Datenschutzhinweise</a> gelesen und bin mit der Verarbeitung meiner Angaben zur Bearbeitung der Anfrage einverstanden.</span></label>
+        </section>
+
+        <div class="funnel-actions">
+          <button class="button button-back" type="button" id="back-step" hidden>Zurück</button>
+          <button class="button button-primary" type="button" id="next-step">Weiter</button>
+          <button class="button button-primary" type="submit" id="submit-funnel" hidden>Eventanfrage vorbereiten</button>
+        </div>
+        <p class="form-status" id="form-status" aria-live="polite"></p>
+      </form>
+
+      <aside class="planner-summary" aria-live="polite">
+        <span class="step-number">Live-Schätzung</span>
+        <h2>Ihre Planung</h2>
+        <dl>
+          <div><dt>Veranstaltung</dt><dd id="sum-event">Firmenfeier</dd></div>
+          <div><dt>Gäste</dt><dd id="sum-guests">100</dd></div>
+          <div><dt>Dauer</dt><dd id="sum-duration">4 Stunden</dd></div>
+          <div><dt>Jahreszeit</dt><dd id="sum-season">Sommer</dd></div>
+        </dl>
+        <div class="need-card">
+          <small>Kalkulierter Getränkebedarf</small>
+          <strong><span id="sum-liters">185</span> Liter</strong>
+          <span>ca. <b id="sum-crates">21</b> Kisten</span>
+        </div>
+        <div class="cooling-tip" id="cooling-tip">❄ Für diese Menge empfehlen wir mobile Kühlung.</div>
+        <p>Unverbindlicher Richtwert. Wetter, Gästeprofil und Programm können den tatsächlichen Verbrauch verändern. Vor dem Angebot prüfen wir die Mengen persönlich.</p>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="planner-footer">
+    <div class="wrap">Direkter Kontakt: <a href="tel:+4960748455530">06074 8455530</a> · <a href="https://wa.me/4917646040392">WhatsApp</a> · <a href="mailto:info@getraenkegrossmann.de">info@getraenkegrossmann.de</a></div>
+  </footer>
+  <script src="/eventplaner.js"></script>
+</body>
+</html>
