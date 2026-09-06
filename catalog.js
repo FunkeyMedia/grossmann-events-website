@@ -6,7 +6,7 @@ const card=p=>`<article class="product-card"><div class="product-photo">${p.imag
 fetch('/catalog-data.json').then(r=>{if(!r.ok)throw Error();return r.json()}).then(products=>{
  products.sort((a,b)=>a.manufacturer.localeCompare(b.manufacturer,'de')||a.brand.localeCompare(b.brand,'de')||a.name.localeCompare(b.name,'de'));
  const preview=document.querySelector('#product-preview');
- if(preview){const names=['Elisabethen Still','Coca Cola Original','Rapps Apfelsaft','Tegernseer hell'];preview.innerHTML=names.map(n=>products.find(p=>p.name===n)).filter(Boolean).map(card).join('');}
+ if(preview){const names=['Elisabethen Still','Coca Cola Original','Rapps Apfelsaft','Tegernseer hell'];preview.innerHTML=names.map(n=>products.find(p=>n==='Coca Cola Original'?p.id==='GG-0279':p.name===n)).filter(Boolean).map(card).join('');}
  const grid=document.querySelector('#products');let shown=24;const filters=['manufacturer','brand','category'].map(id=>document.getElementById(id));const search=document.querySelector('#product-search');
  const count=()=>{const node=document.querySelector('#selection-count');if(node)node.textContent=selected.length?`${selected.length} Produkte für Ihr Event ausgewählt`:'Keine Produkte ausgewählt';};
  const options=(node,items,label)=>{const value=node.value;node.innerHTML=`<option value="">${label}</option>`+[...new Set(items)].sort((a,b)=>a.localeCompare(b,'de')).map(v=>`<option value="${esc(v)}">${esc(v)}</option>`).join('');if([...node.options].some(o=>o.value===value))node.value=value;};
