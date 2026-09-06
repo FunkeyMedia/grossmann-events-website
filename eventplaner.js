@@ -7,6 +7,10 @@ const nextButton = document.querySelector('#next-step');
 const submitButton = document.querySelector('#submit-funnel');
 const status = document.querySelector('#form-status');
 let currentStep = 1;
+let catalogSelection=[];
+try { const saved=JSON.parse(sessionStorage.getItem('grossmann-event-products')||'[]'); if(Array.isArray(saved))catalogSelection=saved.filter(p=>p&&typeof p.name==='string'&&typeof p.package==='string'); } catch {}
+if(catalogSelection.length){const summary=document.createElement('div');summary.className='cooling-tip';summary.textContent='Ihre Sortimentsauswahl: '+catalogSelection.map(p=>p.name+' ('+p.package+')').join(', ');document.querySelector('.planner-summary').append(summary);}
+form.noValidate=true;
 
 const selectedValue = (name) => form.querySelector(`[name="${name}"]:checked`)?.value || '';
 const selectedValues = (name) => [...form.querySelectorAll(`[name="${name}"]:checked`)].map((input) => input.value);
@@ -85,6 +89,7 @@ form.addEventListener('submit', (event) => {
     `Dauer: ${estimate.duration} Stunden`,
     `Jahreszeit: ${estimate.season}`,
     `Getränke: ${selectedValues('drinks').join(', ') || 'Bitte beraten'}`,
+    `Sortimentsauswahl: ${catalogSelection.map(p=>p.name+' · '+p.package).join('; ') || 'Persönliche Empfehlung gewünscht'}`,
     `Equipment: ${selectedValues('equipment').join(', ') || 'Kein Equipment ausgewählt'}`,
     `Reserve: ${estimate.reserve} %`,
     `Unverbindliche Schätzung: ${estimate.liters} Liter / ca. ${estimate.crates} Kisten`, '',
