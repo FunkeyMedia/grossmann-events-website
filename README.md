@@ -4,7 +4,9 @@ Eigenständige, statische Website für Getränke Grossmann Eventservice in Frank
 
 ## Seiten
 
-- Startseite mit Leistungen, Sortiment, Equipment, Unternehmensprofil und Kontakt
+- Startseite mit Leistungen, Sortiment, Equipment, echten Einsatzfotos, Unternehmensprofil und Kontakt
+- Interaktiver Eventplaner mit Bedarfsschätzung und vorbereiteter Anfrage
+- Originales Grossmann-Eventservice-Logo
 - Impressum
 - Datenschutz
 - Allgemeine Geschäftsbedingungen
