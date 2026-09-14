@@ -1,2 +1,11 @@
 .DS_Store
 .vercel
+
+# Local credentials and deployment metadata
+.env*
+.vercel/
+*.key
+*.p12
+*.pfx
+*.pem
+node_modules/

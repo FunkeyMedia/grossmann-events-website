@@ -1,0 +1,9 @@
+.partner-banner{background:#7ccbcc;color:#003266;padding:18px max(20px,calc((100% - 1280px)/2)) 24px}
+.partner-banner-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:10px}
+.partner-banner-image{display:block;border-radius:4px;overflow:hidden}
+.partner-banner-image img{display:block;width:100%;height:auto}
+.partner-banner-image:focus-visible{outline:3px solid #003266;outline-offset:5px}
+.partner-banner-action{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-top:14px;border-top:1px solid #00326626}
+.partner-banner-action>span{font-weight:700;font-size:18px}
+.partner-banner-action .button{font-size:13px;min-height:44px}
+@media(max-width:600px){.partner-banner{padding:14px 16px 22px}.partner-banner-image{margin-inline:-16px;border-radius:0}.partner-banner-action{flex-direction:column;align-items:flex-start;gap:12px}.partner-banner-action .button{width:100%;text-align:center}.partner-banner-action>span{font-size:17px}}

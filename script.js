@@ -19,3 +19,30 @@ nav?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () =
 
 const year = document.querySelector('#year');
 if (year) year.textContent = String(new Date().getFullYear());
+
+const heroVideo = document.querySelector('#hero-video');
+const heroVideoToggle = document.querySelector('.hero-video-toggle');
+if (heroVideo && heroVideoToggle) {
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  const playHero = () => {
+    if (!heroVideo.getAttribute('src')) heroVideo.src = heroVideo.dataset.src;
+    heroVideo.muted = true;
+    heroVideo.play().catch(() => { heroVideoToggle.textContent = 'Video abspielen'; });
+  };
+  heroVideoToggle.hidden = false;
+  heroVideo.addEventListener('play', () => { heroVideoToggle.textContent = 'Video pausieren'; });
+  heroVideo.addEventListener('pause', () => { heroVideoToggle.textContent = 'Video abspielen'; });
+  heroVideo.addEventListener('error', () => {
+    heroVideo.removeAttribute('src');
+    heroVideo.load();
+    heroVideoToggle.hidden = true;
+  });
+  heroVideoToggle.addEventListener('click', () => {
+    if (heroVideo.paused) playHero();
+    else heroVideo.pause();
+  });
+  reducedMotion.addEventListener('change', () => {
+    if (reducedMotion.matches) heroVideo.pause();
+  });
+  if (!reducedMotion.matches && !navigator.connection?.saveData) playHero();
+}
