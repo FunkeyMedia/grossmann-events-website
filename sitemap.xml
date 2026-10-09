@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://grossmann-events.de</loc></url>
   <url><loc>https://grossmann-events.de/sortiment</loc></url>
@@ -18,7 +18,4 @@
   <url><loc>https://grossmann-events.de/frankfurt/schulen</loc></url>
   <url><loc>https://grossmann-events.de/frankfurt/firmenfeiern</loc></url>
   <url><loc>https://grossmann-events.de/frankfurt/vereinsfeste</loc></url>
-  <url><loc>https://grossmann-events.de/impressum</loc></url>
-  <url><loc>https://grossmann-events.de/datenschutz</loc></url>
-  <url><loc>https://grossmann-events.de/agb</loc></url>
-</urlset>
+  </urlset>
